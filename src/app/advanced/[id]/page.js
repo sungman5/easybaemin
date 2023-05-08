@@ -17,7 +17,7 @@ import HTMLReactParser from "html-react-parser";
 export default function AdvancedDetail() {
     const pathname = usePathname();
     const pageId = pathname.split('/')[pathname.split('/').length - 1]
-    
+
     return (
         <section className="leading-relaxed">
             <h1 className="mb-4 text-2xl text-center 2xl:mb-20 md:text-4xl text-BMprimary lg:text-5xl font-hanna md:text-left lg:mb-8">{HTMLReactParser(advanced[pageId].title)}</h1>
@@ -31,10 +31,13 @@ export default function AdvancedDetail() {
                                 advanced[pageId].desc.icon === null ? '' : <Image className="-translate-y-0.5 rounded-full shadow-md" src={advanced[pageId].desc.icon} width={48} height={48} alt={advanced[pageId].desc.icon_alt} />
                             }
                         </div>
-                        <ul>
-                            {advanced[pageId].desc.body.map((element)=>{
-                                return(
-                                    <li className="md:text-xl md:mb-2">{HTMLReactParser(element.item)}</li>
+
+                        <ul >
+                            {advanced[pageId].desc.body.map((element) => {
+                                return (
+                                    <li key={element.id} className="md:text-xl md:mb-2">
+                                        <p>{HTMLReactParser(element.item)}</p>
+                                    </li>
                                 )
                             })}
                         </ul>
@@ -42,9 +45,11 @@ export default function AdvancedDetail() {
                     <div className="py-4 mb-4 border-b 2xl:border-0">
                         <h3 className="mb-4 text-xl md:text-2xl font-hanna">{HTMLReactParser(advanced[pageId].tips.title)}</h3>
                         <ul>
-                            {advanced[pageId].tips.body.map((element)=>{
+                            {advanced[pageId].tips.body.map((element) => {
                                 return (
-                                    <li className="pl-5 mb-1 tracking-tight list-disc list-inside md:mb-3 md:text-xl -indent-5" key={element.item}>{element.item}</li>
+                                    <li className="pl-5 mb-1 tracking-tight list-disc list-inside md:mb-3 md:text-xl -indent-5" key={element.id}>
+                                        <span>{element.item}</span>
+                                    </li>
                                 )
                             })}
                         </ul>
@@ -55,14 +60,14 @@ export default function AdvancedDetail() {
                 <h2 className="text-2xl text-center md:text-3xl 2xl:text-left 2xl:leading-snug 2xl:mb-8 font-hanna">{HTMLReactParser(advanced[pageId].tutorial_title)}</h2>
                 <ul>
                     {
-                        advanced[pageId].content.map((element)=>{
-                            
-                            return(
+                        advanced[pageId].content.map((element) => {
+
+                            return (
                                 <li className="py-4 border-b 2xl:gap-8 md:text-xl md:py-8 last:border-0 2xl:flex" key={element.id}>
-                                    <Image className="w-56 mx-auto 2xl:m-0" src={element.img} width={600} height={1060} alt={element.alt}/>
+                                    <Image className="w-56 mx-auto 2xl:m-0" src={element.img} width={600} height={1060} alt={element.alt} />
                                     <div className="2xl:flex 2xl:gap-2">
                                         <span className="flex items-center justify-center w-8 h-8 mx-auto mb-2 font-bold text-white rounded-full bg-BMprimary">{element.id}</span>
-                                        <p className="text-center 2xl:text-left">{HTMLReactParser(element.desc)}</p>
+                                        <p className="text-center 2xl:text-2xl 2xl:text-left">{HTMLReactParser(element.desc)}</p>
                                     </div>
                                 </li>
                             )
