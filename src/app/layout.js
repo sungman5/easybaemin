@@ -5,6 +5,7 @@ import Footer from '../components/footer'
 import './globals.css'
 import Head from 'next/head'
 import { useState } from 'react';
+import html2canvas from 'html2canvas';
 
 /**
  * sm	640px	@media (min-width: 640px) { ... }
@@ -28,9 +29,19 @@ export default function RootLayout({ children }) {
     setZoom((prevZoom) => prevZoom - 0.1);
   };
 
-  const zoomInit = () =>{
+  const zoomInit = () => {
     setZoom(1);
   }
+
+
+  // const getScreenShot = () => {
+  //   console.log('onCapture!');
+  //   html2canvas(document.body).then(function (canvas) {
+  //     // document.body.appendChild(canvas);
+  //     drawImg(canvas.toDataURL('image/png'));
+  //     document.body.appendChild(canvas)
+  //   });
+  // }
 
 
   return (
@@ -38,12 +49,13 @@ export default function RootLayout({ children }) {
       <Head>
         <title>쉬운 배달앱 사용법</title>
       </Head>
-      <body className="h-full bg-BMwhite">
+      <body id="captureTarget" className="h-full bg-BMwhite">
         {/* wrapper start */}
         <div className="flex flex-col h-full">
           <Header zoomInit={zoomInit} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
-          <main className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>
+          <main className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>        
             {children}
+            {/* <canvas id="canvas" width={900} height={900} className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-green-100"></canvas> */}
           </main>
           <Footer />
         </div>

@@ -13,8 +13,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import html2canvas from "html2canvas";
 
-export default function Header({ increaseZoom, decreaseZoom, zoomInit, zoom}) {
+export default function Header({ increaseZoom, decreaseZoom, zoomInit, getScreenShot, zoom }) {
     //open-menu
     const pathname = usePathname();
     console.log(pathname)
@@ -33,18 +34,19 @@ export default function Header({ increaseZoom, decreaseZoom, zoomInit, zoom}) {
 
 
 
+
     //change color
     const [isContrast, setIsContrast] = useState(false);
-    const handleContrast = useCallback(()=>{
+    const handleContrast = useCallback(() => {
         if (isContrast === false) {
             //색상을 변경한다
             document.documentElement.style.setProperty('--BM-primary', '#000000')
             document.documentElement.style.setProperty('--BM-secondary', '#ffff00')
             document.documentElement.style.setProperty('--BM-tertiary', '#3ff23f')
-            document.documentElement.style.setProperty('--BM-black', '#000000')            
+            document.documentElement.style.setProperty('--BM-black', '#000000')
             document.documentElement.style.setProperty('--BM-line', '1aebff')
             document.getElementById('contrastSwitch').classList.remove('justify-start');
-            document.getElementById('contrastSwitch').classList.add('justify-end');            
+            document.getElementById('contrastSwitch').classList.add('justify-end');
             setIsContrast(true)
         } else {
             document.documentElement.style.setProperty('--BM-primary', '#23b8c0')
@@ -88,13 +90,19 @@ export default function Header({ increaseZoom, decreaseZoom, zoomInit, zoom}) {
                         <button onClick={zoomInit} className="px-2 py-1 border">{`${parseInt(zoom * 100)}%`}</button>
                         <button onClick={decreaseZoom} className="px-2 py-1 border border-l-0">작게</button>
                     </div>
+
                     {/* 돋보기 아이콘 */}
-                    <svg aria-label="돋보기 magnifier" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-                    </svg>
-                    <p>돋보기</p>
+                    {/* <button className="flex" onClick={getScreenShot}>                         */}
+                    <button className="flex" onClick={''}>                        
+                            <svg aria-label="돋보기 magnifier" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                            </svg>                        
+                        <span>돋보기</span>
+                    </button>
+
+
                 </div>
-                
+
                 {/* 모바일 기능 버튼 */}
                 <div id="mobile-option-set" className="fixed font-Pretendard text-sm font-semibold right-0 flex flex-col items-start w-24 gap-[1px] shadow-md top-[40%] lg:hidden">
                     <button onClick={increaseZoom} id="zoomIn" className="flex items-center w-24 h-8 border-0">

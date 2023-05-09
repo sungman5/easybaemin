@@ -3,7 +3,7 @@ export const advanced = [
         id: 0,
         title: '음식을 빨리 배달 받고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_0.jpg',
-        alt: '',
+        alt: '두 명의 사람이 식탁에 앉아 배고파한다. 또 다른 사람이 급한 표정으로 배달앱을 보며 빨리 배달 오는 메뉴가 있는지 찾아보고 있다. ',
         desc:
         {
             title: '배민1',
@@ -31,19 +31,19 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_0_1.jpg',
                 desc: `배달의민족 첫 화면에서 배민1을 누른다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달의민족의 첫 화면이다. 손가락 모양의 아이콘이 배민원 버튼을 가리키고 있다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_0_2.jpg',
                 desc: `‘검색’을 누르고 <br/>원하는 음식이나 가게 이름을 검색한다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '화면에 족발, 보쌈, 돈가스, 고기, 피자 등의 다양한 음식 모양 아이콘이 있다. 화면 왼쪽 하단에 있는 검색 버튼이 강조되어 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_0_3.jpg',
                 desc: `마음에 드는 가게를 선택해서 주문한다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '화면에 여러 종류의 치킨 가게가 나와 있다.',
             },
         ]
 
@@ -52,7 +52,7 @@ export const advanced = [
         id: 1,
         title: '배달팁이 싼 곳에서 주문하고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_1.jpg',
-        alt: '',
+        alt: '한 사람이 스마트폰 화면으로 배달앱을 보면서 배달팁이 무료인 가게를 보고 좋아한다.',
         desc:
         {
             title: '배달팁 낮은 순',
@@ -77,25 +77,25 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_1_1.jpg',
                 desc: `배달의민족 첫 화면에서 <br/>먹고 싶은 음식을 검색한다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달의민족의 첫 화면이다. 상단의 검색창에 샌드위치라고 검색하고 있다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_1_2.jpg',
                 desc: `검색 결과에서 ‘기본순’을 누른다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '샌드위치로 검색한 결과 화면이다. 배달 버튼과 기본순 버튼이 강조되어 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_1_3.jpg',
                 desc: `‘배달팁 낮은 순’을 누르면 <br/>배달팁이 낮은 가게부터 볼 수 있다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '기본순 버튼을 누른 결과 화면이다. 배달 빠른 순, 배달팁 낮은 순, 주문 많은 순, 별점 높은 순, 가까운 순, 찜 많은 순의 항목이 있고 손가락 모양 아이콘이 배달팁 낮은 순을 가리키고 있다.',
             },
             {
                 id: 4,
                 img: '/assets/advanced_imgs/adv_id_1_4.jpg',
                 desc: `마음에 드는 가게를 선택해서 주문한다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '화면에 배달팁 낮은 순으로 정렬된 가게 정보가 담겨 있다.',
             },
         ]
 
@@ -104,7 +104,7 @@ export const advanced = [
         id: 2,
         title: '음식을 포장해서 먹고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_2.png',
-        alt: '',
+        alt: '왼쪽에 스마트폰 화면이 크게 있다. 화면 속에는 지도 위에 음식 모양의 아이콘이 있다. 오른쪽에 한 사람이 포장하기 위해 피자 가게로 걸어가고 있다.',
         desc:
         {
             title: '포장',
@@ -129,25 +129,25 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_2_1.jpg',
                 desc: `배달의민족 첫 화면에서 포장을 누른다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달의민족의 첫 화면이다. 손가락 모양의 아이콘이 포장 버튼을 가리키고 있다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_2_2.jpg',
                 desc: `지도가 나오고, 포장할 수 있는 가까운 가게가 <br/>음식 모양으로 표시된다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '지도 위에 음식 모양 아이콘이 표시되어 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_2_3.jpg',
                 desc: `음식 모양을 누르면 가게 정보가 나온다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '손가락 모양의 아이콘이 음식 모양 아이콘을 가리키고 있다.',
             },
             {
                 id: 4,
                 img: '/assets/advanced_imgs/adv_id_2_4.jpg',
                 desc: `지도에서 가게를 더 찾아 볼 수 있다. <br/>마음에 드는 곳을 선택해서 주문한다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '지도 위에 여러 가지 음식 모양의 아이콘이 표시되어 있다. 손가락 모양 아이콘이 목록보기 버튼을 가리키고 있다.',
             },
         ]
 
@@ -156,7 +156,7 @@ export const advanced = [
         id: 3,
         title: '1인분만 주문하고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_3.jpg',
-        alt: '',
+        alt: '한 사람이 TV에서 음식을 먹는 장면을 보며 배달앱을 켜서 1인분의 음식을 주문하려고 하고 있다.',
         desc:
         {
             title: '1인분',
@@ -183,19 +183,19 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_3_1.jpg',
                 desc: `배달의민족 첫 화면에서 <br/>먹고 싶은 음식을 검색한다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달의민족의 첫 화면이다. 상단의 검색창에 샌드위치라고 검색하고 있다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_3_2.jpg',
                 desc: `검색 결과에서 ‘1인분’을 누르면 <br/>1인분만 배달해주는 가게가 나온다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '샌드위치로 검색한 결과 화면이다. 배달 버튼과 1인분 버튼이 강조되어 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_3_3.jpg',
                 desc: `마음에 드는 가게를 선택해서 주문한다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '화면에 1인분 주문 가능한 가게 정보들만 담겨 있다.',
             },
         ]
 
@@ -204,7 +204,7 @@ export const advanced = [
         id: 4,
         title: '예전에 먹은 음식을 또 주문하고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_4.jpg',
-        alt: '',
+        alt: '한 사람이 예전에 친구와 먹었던 치킨맛을 떠올리며 배달앱의 주문 내역을 보며 예전에 주문했던 치킨집 이름과 메뉴를 확인하고 있다.',
         desc:
         {
             title: '주문 내역',
@@ -231,19 +231,19 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_4_1.jpg',
                 desc: `배달의민족 첫 화면에서‘My배민’을 누른다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달의민족의 첫 화면이다. 손가락 모양의 아이콘이 오른쪽 상단에 있는 마이배민 아이콘을 가리키고 있다. 마이배민 아이콘은 입맛 다시는 얼굴 모양이다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_4_2.jpg',
                 desc: `'주문내역'을 누른다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '마이배민 화면이다. 손가락 모양 아이콘이 주문내역 버튼을 가리키고 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_4_3.jpg',
                 desc: `예전에 시켰던 가게와 메뉴 이름이 나온다. <br/>가게 이름을 누르면 가게 정보를 볼 수 있다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '주문 내역이 소개되어 있다. 가게명과 음식명이 담겨 있다.',
             },
         ]
 
@@ -252,7 +252,7 @@ export const advanced = [
         id: 5,
         title: '싫어하는 음식은 빼달라고 하고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_5.jpg',
-        alt: '',
+        alt: '고객이 배달앱으로 주문하면서 땅콩 빼달라고 요청한다. 요리사는 요청사항을 보고 땅콩을 빼고 요리한다.',
         desc:
         {
             title: '가게 사장님께',
@@ -280,19 +280,19 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_5_1.jpg',
                 desc: `주문하고 싶은 가게에 들어가 <br className="2xl:hidden"/>먹고 싶은 메뉴를 장바구니에 담는다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달앱 화면에 샌드위치 가게명과 메뉴 정보가 담겨 있다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_5_2.jpg',
                 desc: `장바구니에 담긴 음식을 확인하고 <br className="2xl:hidden"/>‘배달 주문하기’를 누른다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '장바구니 버튼을 누른 화면이다. 배달 주문하기 버튼이 강조되어 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_5_3.jpg',
                 desc: `아래로 내리면 ‘가게 사장님께’가 있다.<br className="2xl:hidden" /> 회색 빈칸에 원하는 것을 적고 결제한다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '가게 사장님께 칸이 강조되어 있다. 칸 안에는 샌드위치에 오이 빼주세요라고 적혀 있다.',
             },
         ]
 
@@ -301,7 +301,7 @@ export const advanced = [
         id: 6,
         title: '생활에 필요한 물건도 배달 받고 싶어!',
         cover_img_url: '/assets/advanced_imgs/adv_id_6.jpg',
-        alt: '',
+        alt: '싱크대에 설거지할 그릇과 접시가 가득 쌓여 있는데 세제가 떨어져서 배달의민족 비마트를 켜서 세제를 검색하고 있다.',
         desc:
         {
             title: 'B마트',
@@ -327,19 +327,19 @@ export const advanced = [
                 id: 1,
                 img: '/assets/advanced_imgs/adv_id_6_1.jpg',
                 desc: `배달의민족 첫 화면에서 B마트(비마트)를 누른다.`,
-                alt: '구글 플레이스토어 메인화면',
+                alt: '배달의민족의 첫 화면이다. 손가락 모양의 아이콘이 비마트 버튼을 가리키고 있다.',
             },
             {
                 id: 2,
                 img: '/assets/advanced_imgs/adv_id_6_2.jpg',
                 desc: `‘검색’을 누르고 필요한 물건을 검색한다.`,
-                alt: '플레이스토어 검색창이 강조된 메인화면'
+                alt: '비마트 화면이다. 신상품, 인기제품, 신선제품, 밀키트, 우유, 건강, 분식, 아이스크림, 화장지, 빵, 과자, 세제, 뷰티, 음료 아이콘이 담겨 있으며, 손가락 모양의 아이콘이 검색 버튼을 가리키고 있다.'
             },
             {
                 id: 3,
                 img: '/assets/advanced_imgs/adv_id_6_3.jpg',
                 desc: `사고 싶은 물건을 선택해서 장바구니에 담는다. 음식을 주문하는 것과 똑같이 주문한다.`,
-                alt: '배달의민족 텍스트를 입력하고 검색버튼을 누르는 이미지',
+                alt: '검색창에 세제를 검색하고 있다. 다양한 세제의 정보가 담겨 있다.',
             },
         ]
 
