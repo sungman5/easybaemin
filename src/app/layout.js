@@ -38,21 +38,22 @@ export default function RootLayout({ children }) {
   const handleContrast = useCallback(() => {
     if (isContrast === false) {
       //색상을 변경한다
-      document.documentElement.style.setProperty('--BM-primary', '#94a596')
+      document.documentElement.style.setProperty('--BM-primary', '#e56db1')
       document.documentElement.style.setProperty('--BM-secondary', '#ffff00')
+      document.documentElement.style.setProperty('--BM-line', '#1aebff')
       document.documentElement.style.setProperty('--BM-tertiary', '#3ff23f')
       document.documentElement.style.setProperty('--BM-black', '#ffffff')
-      document.documentElement.style.setProperty('--BM-line', '#1aebff')
       document.documentElement.style.setProperty('--BM-white', '#000000')
       document.getElementById('contrastSwitch').classList.remove('justify-start');
       document.getElementById('contrastSwitch').classList.add('justify-end');
       setIsContrast(true)
     } else {
       document.documentElement.style.setProperty('--BM-primary', '#23b8c0')
+      document.documentElement.style.setProperty('--BM-secondary', '#6dba44')
+      document.documentElement.style.setProperty('--BM-line', '#f1f5f9')
       document.documentElement.style.setProperty('--BM-tertiary', '#fdd118')
       document.documentElement.style.setProperty('--BM-black', '#414141')
-      document.documentElement.style.setProperty('--BM-white', '#ffffff')
-      document.documentElement.style.setProperty('--BM-secondary', '#6dba44')
+      document.documentElement.style.setProperty('--BM-white', '#ffffff')      
       // 색상을 원래대로
       document.getElementById('contrastSwitch').classList.remove('justify-end');
       document.getElementById('contrastSwitch').classList.add('justify-start');
