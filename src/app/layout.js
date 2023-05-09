@@ -4,7 +4,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import './globals.css'
 import Head from 'next/head'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import html2canvas from 'html2canvas';
 
 /**
@@ -33,6 +33,32 @@ export default function RootLayout({ children }) {
     setZoom(1);
   }
 
+  //change color
+  const [isContrast, setIsContrast] = useState(false);
+  const handleContrast = useCallback(() => {
+    if (isContrast === false) {
+      //색상을 변경한다
+      document.documentElement.style.setProperty('--BM-primary', '#000000')
+      document.documentElement.style.setProperty('--BM-secondary', '#ffff00')
+      document.documentElement.style.setProperty('--BM-tertiary', '#3ff23f')
+      document.documentElement.style.setProperty('--BM-black', '#000000')
+      document.documentElement.style.setProperty('--BM-line', '1aebff')
+      document.getElementById('contrastSwitch').classList.remove('justify-start');
+      document.getElementById('contrastSwitch').classList.add('justify-end');
+      setIsContrast(true)
+    } else {
+      document.documentElement.style.setProperty('--BM-primary', '#23b8c0')
+      document.documentElement.style.setProperty('--BM-tertiary', '#fdd118')
+      document.documentElement.style.setProperty('--BM-black', '#414141')
+      document.documentElement.style.setProperty('--BM-white', '#ffffff')
+      document.documentElement.style.setProperty('--BM-secondary', '#6dba44')
+      // 색상을 원래대로
+      document.getElementById('contrastSwitch').classList.remove('justify-end');
+      document.getElementById('contrastSwitch').classList.add('justify-start');
+      setIsContrast(false)
+    }
+  }, [isContrast])
+
 
   // const getScreenShot = () => {
   //   const isCanvas = document.getElementById('canvas')
@@ -51,12 +77,12 @@ export default function RootLayout({ children }) {
       <body id="captureTarget" className="h-full bg-BMwhite">
         {/* wrapper start */}
         <div className="flex flex-col h-full">
-          <Header zoomInit={zoomInit} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
+          <Header zoomInit={zoomInit} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
           <main className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>        
             {children}
             {/* <canvas id="canvas" width={900} height={900} className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-green-100"></canvas> */}
           </main>
-          <Footer />
+          <Footer zoomInit={zoomInit} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
         </div>
         {/* wrapper end */}
       </body>
