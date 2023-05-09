@@ -1,17 +1,17 @@
 export const basic = [
-    {
-        id: 0,
-        isTutorial: false,
-        title: '쉬운 배달앱 사용법',
-        tutoContents: [
-            {
-                id: '1',
-                desc: '플레이 스토어를 연다.',
-                img: '',
-                alt: '',
-            },
-        ]
-    },
+    // {
+    //     id: 0,
+    //     isTutorial: false,
+    //     title: '쉬운 배달앱 사용법',
+    //     tutoContents: [
+    //         {
+    //             id: '1',
+    //             desc: '플레이 스토어를 연다.',
+    //             img: '',
+    //             alt: '',
+    //         },
+    //     ]
+    // },
     {
         id: 1,
         isTutorial: false,

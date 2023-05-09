@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
             {children}
             {/* <canvas id="canvas" width={900} height={900} className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-green-100"></canvas> */}
           </main>
-          <Footer zoomInit={zoomInit} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
+          <Footer zoomInit={zoomInit} isContrast={isContrast} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
         </div>
         {/* wrapper end */}
       </body>

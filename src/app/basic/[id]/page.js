@@ -16,10 +16,7 @@ export default function BasicDetail() {
     console.log(pageId)
 
     const showPage = () => {
-        if (pageId === '0') {
-            // 쉬운 배달앱 사용법
-            return <Basic_id_0 />
-        } else if (pageId === '1') {
+        if (pageId === '1') {
             // 배달앱 용어사전
             return <Basic_id_1 />
         } else if (pageId === '5') {

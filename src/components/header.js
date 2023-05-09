@@ -37,7 +37,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                 <h1 className="text-lg sm:text-3xl font-hanna" tabIndex={1} aria-label="로고" aria-roledescription="클릭시 메인화면으로 이동."><Link role="logo" href={'/'}>쉬운 배달앱 사용법</Link></h1>
                 <nav className="justify-center hidden text-xl grow font-hanna lg:flex">
                     <ul className="flex xl:gap-5">
-                        <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'basic/0'}>준비하기</Link></li>
+                        <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'basic/1'}>준비하기</Link></li>
                         <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'usage/0'}>이용하기</Link></li>
                         <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'advanced/0'}>활용하기</Link></li>
                     </ul>
@@ -66,7 +66,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                     </div>
 
                     {/* 메뉴 아이콘 */}
-                    <button onClick={openNav} className="relative w-6 h-6" aria-label="메뉴임" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림">                        
+                    <button onClick={openNav} role="button" aria-expanded={isNavOpen} className="relative w-6 h-6" aria-label="메뉴" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림">
                         {/* <span className="absolute flex items-center justify-between inset-0 text-[5px] bg-green-500">메뉴</span> */}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="absolute inset-0 z-10 w-6 h-6 stroke-2 lg:hidden">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
@@ -74,23 +74,22 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                     </button>
                 </div>
                 {/* 모바일 슬라이드 네비게이션 */}
-                <nav aria-hidden="true" id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end px-5 py-1 overflow-y-auto translate-x-full bg-BMwhite l-100 lg:hidden">
+                <nav aria-hidden={!isNavOpen} id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end px-5 py-1 overflow-y-auto translate-x-full bg-BMwhite l-100 lg:hidden">
                     <div className="flex items-center justify-between w-full pb-5 text-xl border-b font-hanna">
                         <h1 className="pt-3">메뉴</h1>
-                        <svg aria-label="닫기 버튼" xmlns="http://www.w3.org/2000/svg" fill="none" onClick={openNav} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block w-6 h-6 p-0">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                        <button aria-label="닫기 버튼">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" onClick={openNav} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block w-6 h-6 p-0">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
                     </div>
                     <ul className="w-full h-full text-2xl font-hanna">
                         <li className="py-5 border-b">
                             <div className="flex justify-between mb-3">
-                                <Link className="text-BMprimary" href={'basic/0'}>준비하기</Link>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
+                                <h2 className="text-BMprimary" >준비하기</h2>
                             </div>
                             <ol className="flex flex-col text-base font-Pretendard">
-                                <li><Link onClick={openNav} className="block py-1 pt-0 font-medium border-BMprimary text-BMblack" href={'basic/0'}>쉬운 배달앱 사용법</Link></li>
+                                {/* <li><Link onClick={openNav} className="block py-1 pt-0 font-medium border-BMprimary text-BMblack" href={'basic/1'}>쉬운 배달앱 사용법</Link></li> */}
                                 <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/1'}>배달앱 용어사전</Link></li>
                                 <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/2'}>배달앱 설치하기</Link></li>
                                 <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/3'}>주소 설정하기</Link></li>
@@ -100,10 +99,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                         </li>
                         <li className="py-3 border-b">
                             <div className="flex justify-between mb-3">
-                                <Link className="text-BMsecondary" href={'usage/0'}>이용하기</Link>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
+                                <h2 className="text-BMsecondary">이용하기</h2>
                             </div>
                             <ol className="flex flex-col text-base font-Pretendard">
                                 <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'usage/0'}>주문할 곳 고르기</Link></li>
@@ -113,10 +109,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                         </li>
                         <li className="py-3">
                             <div className="flex justify-between mb-3">
-                                <Link className="text-BMtertiary" href={'advanced/0'}>활용하기</Link>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
+                                <h2 className="text-BMtertiary">활용하기</h2>
                             </div>
                             <ol className="text-base font-Pretendard">
                                 <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'advanced/0'}>음식을 빨리 배달 받고 싶어!</Link></li>
@@ -131,7 +124,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                         </li>
                     </ul>
                 </nav>
-            
+
             </header>
         </>
     )

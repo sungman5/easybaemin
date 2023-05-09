@@ -37,7 +37,7 @@ export default function Home() {
       <section className='absolute inset-x-0 bottom-0 overflow-hidden'>
         <Image id='bm-character' priority={true} className="-z-40 invisible w-[300px] sm:w-[248px] mx-auto md:w-[320px] lg:w-[480px] 3xl:w-[648px] grow" src={'/assets/bm-character-2.png'} width={541} height={406} alt='' />
         <div className='z-50 lg:flex'>
-          <Link className="block px-5 py-4 bg-BMwhite 3xl:h-96 text-BMrealblack lg:grow sm:py-6 lg:pb-32 border-BMline " href={'basic/0'}><p className='text-xl text-BMrealblack lg:text-5xl xl:text-6xl lg:mb-3'>준비하기</p><p className='hidden text-xl text-BMrealblack lg:block font-Pretendard'>앱 설치부터 회원가입까지!<br />
+          <Link className="block px-5 py-4 bg-BMwhite 3xl:h-96 text-BMrealblack lg:grow sm:py-6 lg:pb-32 border-BMline " href={'basic/1'}><p className='text-xl text-BMrealblack lg:text-5xl xl:text-6xl lg:mb-3'>준비하기</p><p className='hidden text-xl text-BMrealblack lg:block font-Pretendard'>앱 설치부터 회원가입까지!<br />
             배달앱을 시작해 보자.</p></Link>
           <Link className="block px-5 py-4 bg-BMtertiary 3xl:h-96 text-BMrealblack lg:border-r lg:border-r-BMprimary lg:grow sm:py-6 lg:pb-32 border-BMline " href={'usage/0'}><p className='text-xl text-BMrealblack lg:text-5xl xl:text-6xl lg:mb-3'>이용하기</p><p className='hidden text-xl text-BMrealblack lg:block font-Pretendard'>음식 선택부터 결제까지!<br />
             배달앱으로 주문해 보자.</p></Link>
