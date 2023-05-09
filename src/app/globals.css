@@ -4,13 +4,13 @@
 
 @layer utilites {
     .caption {
-        @apply text-sm font-medium text-center text-gray-400;
+        @apply text-sm font-medium text-center text-BMgray400;
     }
     .caption-lg{
-        @apply text-2xl font-medium text-center text-gray-400;
+        @apply text-2xl font-medium text-center text-BMgray400;
     }
     .caption-left{
-        @apply text-lg font-medium text-left text-gray-400;
+        @apply text-lg font-medium text-left text-BMgray400;
     }
 }
 
@@ -24,10 +24,16 @@
 
 @layer base{
     :root{
-        --BM-primary : #2AC1BC;
-        --BM-secondary : #70bf54;
-        --BM-tertiary : #ffcc32;
+        --BM-primary : #23b8c0;
+        --BM-secondary : #6dba44;
+        --BM-tertiary : #fdd118;
         --BM-black : #414141;    
+        --BM-realblack : #000000;    
         --BM-warning : tomato;    
+        --BM-white : #ffffff;    
+        --BM-gray : #ffffff;    
+        --BM-gray400 : #9ca3af;    
+        --BM-gray500 : #6b7280;    
+        --BM-line : #f1f5f9;    
     }
 }

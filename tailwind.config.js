@@ -18,6 +18,11 @@ module.exports = {
         'BMsecondary': 'var(--BM-secondary)',
         'BMtertiary': 'var(--BM-tertiary)',
         'BMwarning': 'var(--BM-warning)',
+        'BMwhite': 'var(--BM-white)',
+        'BMgray500': 'var(--BM-gray500)',
+        'BMgray400': 'var(--BM-gray400)',
+        'BMline': 'var(--BM-line)',
+        'BMrealblack': 'var(--BM-realblack)',
       },
       fontFamily: {
         'hanna' : ['BMHANNAPro'],

@@ -1,7 +1,10 @@
+'use client';
+
 import Header from '../components/header'
 import Footer from '../components/footer'
 import './globals.css'
-
+import Head from 'next/head'
+import { useState } from 'react';
 
 /**
  * sm	640px	@media (min-width: 640px) { ... }
@@ -12,20 +15,33 @@ import './globals.css'
  * 3xl 1920px @media (min-width: 1920px) { ... }
  */
 
-export const metadata = {
-  title: '쉬운 배달앱 설명서',
-  description: '소소와 배민이 만들었습니다.',
-}
-
-
 
 export default function RootLayout({ children }) {
+
+  // 줌앤아웃 
+  const [zoom, setZoom] = useState(1);
+  const increaseZoom = () => {
+    setZoom((prevZoom) => prevZoom + 0.1);
+  };
+
+  const decreaseZoom = () => {
+    setZoom((prevZoom) => prevZoom - 0.1);
+  };
+
+  const zoomInit = () =>{
+    setZoom(1);
+  }
+
+
   return (
-    <html className='h-full font-Pretendard text-BMblack' lang="en">
-      <body className="h-full bg-white">
+    <html style={{ zoom: zoom }} className='h-full font-Pretendard text-BMblack' lang="en">
+      <Head>
+        <title>쉬운 배달앱 사용법</title>
+      </Head>
+      <body className="h-full bg-BMwhite">
         {/* wrapper start */}
         <div className="flex flex-col h-full">
-          <Header />
+          <Header zoomInit={zoomInit} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
           <main className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>
             {children}
           </main>

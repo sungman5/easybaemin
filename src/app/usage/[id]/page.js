@@ -30,7 +30,7 @@ export default function UsageDetail() {
                             <li className="py-5 border-b md:flex md:gap-4 " key={element.id}>
                                 <Image className="w-56 mx-auto md:m-0" src={element.img} width={600} height={1060} alt={element.alt} />
                                 <div className="md:translate-y-4 md:flex md:gap-4">
-                                    <div className="flex items-center justify-center w-8 h-8 mx-auto mb-2 font-bold text-white rounded-full bg-BMprimary">
+                                    <div className="flex items-center justify-center w-8 h-8 mx-auto mb-2 font-bold rounded-full text-BMwhite bg-BMprimary">
                                         {element.id}
                                     </div>
                                     <p className="text-center md:text-left md:text-2xl md:items-start md:leading-normal md:justify-start">{HTMLReactParser(element.desc)}</p>

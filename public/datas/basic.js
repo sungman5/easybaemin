@@ -84,13 +84,13 @@ export const basic = [
             },
             {
                 id: '3',
-                desc: '<p>배달받을 주소를검색한다.</p><p className="text-sm font-medium text-gray-400 md:text-lg">&#96;서울시 중구 소소로 123, 101호&#96;면, 소소로 123만 입력한다.</p>',
+                desc: '<p>배달받을 주소를검색한다.</p><p className="text-sm font-medium text-BMgray400 md:text-lg">&#96;서울시 중구 소소로 123, 101호&#96;면, 소소로 123만 입력한다.</p>',
                 img: '/assets/basic_imgs/b-4-3.jpg',
                 alt: '',
             },
             {
                 id: '4',
-                desc: '<p>상세 주소를 입력하고 완료를 누른다.</p><p className="text-sm font-medium text-center text-gray-400 md:text-lg">상세주소: 건물 이름이나 동, 호 등 주소의 뒷부분</p>',
+                desc: '<p>상세 주소를 입력하고 완료를 누른다.</p><p className="text-sm font-medium text-center text-BMgray400 md:text-lg">상세주소: 건물 이름이나 동, 호 등 주소의 뒷부분</p>',
                 img: '/assets/basic_imgs/b-4-4.jpg',
                 alt: '',
             },
@@ -148,7 +148,7 @@ export const basic = [
             },
             {
                 id: '5',
-                desc: '<p>이름, 생년월일, 휴대전화 번호를 쓰고<br> <span className="font-hanna text-BMprimary">인증번호 요청</span>을 누른다.</p> <p className="text-sm font-medium text-center text-gray-400">인증번호: 실제로 사용하는 전화인지 확인하는 숫자. <br>문자로 받는다.</p>',
+                desc: '<p>이름, 생년월일, 휴대전화 번호를 쓰고<br> <span className="font-hanna text-BMprimary">인증번호 요청</span>을 누른다.</p> <p className="text-sm font-medium text-center text-BMgray400">인증번호: 실제로 사용하는 전화인지 확인하는 숫자. <br>문자로 받는다.</p>',
                 img: '/assets/basic_imgs/b-5-5.jpg',
                 alt: '',
             },
@@ -161,13 +161,13 @@ export const basic = [
             {
                 id: '7',
                 desc: `<p>이메일 주소를 입력하고 <span className="font-hanna text-BMprimary">중복확인</span>을 누른다.</p> 
-                <p className="text-sm font-medium text-center text-gray-400"">회원가입을 하려면 이메일 주소가 있어야 한다.</p>`,
+                <p className="text-sm font-medium text-center text-BMgray400"">회원가입을 하려면 이메일 주소가 있어야 한다.</p>`,
                 img: '/assets/basic_imgs/b-5-7.jpg',
                 alt: '',
             },
             {
                 id: '8',
-                desc: '<p>닉네임, 비밀번호, 생년월일을 입력하고<br> 완료를 누른다.</p> <p className="text-sm font-medium text-gray-400">비밀번호는 10자보다 길게 만든다. 영어, 숫자, 특수문자 중 2가지 종류를 섞는다.</p>',
+                desc: '<p>닉네임, 비밀번호, 생년월일을 입력하고<br> 완료를 누른다.</p> <p className="text-sm font-medium text-BMgray400">비밀번호는 10자보다 길게 만든다. 영어, 숫자, 특수문자 중 2가지 종류를 섞는다.</p>',
                 img: '/assets/basic_imgs/b-5-8.jpg',
                 alt: '',
             },

@@ -29,7 +29,7 @@ export default function Basic_id_5() {
                 <li className="py-3 border-b md:text-lg">
                     <p className="mb-1 text-lg md:py-2 md:text-2xl font-hanna text-BMprimary">6. 빠른 배달시키기</p>
                     <p>오른쪽의 배달보다 빠르게 받을 수 있다.</p>
-                    <p className="text-sm font-medium text-gray-400">
+                    <p className="text-sm font-medium text-BMgray400">
                         지역에 따라 배민1과 배달의 위치가 다르며 배민1이 안 보일 수 있다.
                     </p>
                 </li>

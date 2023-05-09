@@ -11,10 +11,10 @@
 import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-export default function Header() {
+export default function Header({ increaseZoom, decreaseZoom, zoomInit, zoom}) {
     //open-menu
     const pathname = usePathname();
     console.log(pathname)
@@ -29,10 +29,47 @@ export default function Header() {
             setIsNavOpen(false)
         }
     }
-    //change header color
 
-    return (        
-        <header className={pathname === '/' ? "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-black bg-white lg:bg-BMprimary lg:text-white lg:px-12" : "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-black bg-white lg:bg-white lg:text-BMblack lg:px-12 border-b"}>
+
+
+
+    //change color
+    const [isContrast, setIsContrast] = useState(false);
+    const handleContrast = useCallback(()=>{
+        if (isContrast === false) {
+            //색상을 변경한다
+            document.documentElement.style.setProperty('--BM-primary', '#000000')
+            document.documentElement.style.setProperty('--BM-secondary', '#ffff00')
+            document.documentElement.style.setProperty('--BM-tertiary', '#3ff23f')
+            document.documentElement.style.setProperty('--BM-black', '#000000')            
+            document.documentElement.style.setProperty('--BM-line', '1aebff')
+            document.getElementById('contrastSwitch').classList.remove('justify-start');
+            document.getElementById('contrastSwitch').classList.add('justify-end');            
+            setIsContrast(true)
+        } else {
+            document.documentElement.style.setProperty('--BM-primary', '#23b8c0')
+            document.documentElement.style.setProperty('--BM-tertiary', '#fdd118')
+            document.documentElement.style.setProperty('--BM-black', '#414141')
+            document.documentElement.style.setProperty('--BM-white', '#ffffff')
+            document.documentElement.style.setProperty('--BM-secondary', '#6dba44')
+            // 색상을 원래대로
+            document.getElementById('contrastSwitch').classList.remove('justify-end');
+            document.getElementById('contrastSwitch').classList.add('justify-start');
+            setIsContrast(false)
+        }
+    }, [isContrast])
+
+    // useEffect(()=>{
+    //     if (isContrast === false){
+    //         setContrastToggle(true)
+    //     } else{
+    //         setContrastToggle(false)
+    //     }
+    // }, [isContrast])
+
+
+    return (
+        <header className={pathname === '/' ? "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-black bg-BMwhite lg:bg-BMprimary lg:text-BMwhite lg:px-12" : "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-black bg-BMwhite lg:bg-BMwhite lg:text-BMblack lg:px-12 border-b"}>
             <h1 className="text-lg sm:text-3xl font-hanna" aria-label="로고 logo" aria-roledescription="클릭시 메인화면으로 이동."><Link href={'/'}>쉬운 배달앱 사용법</Link></h1>
             <nav className="justify-center hidden text-xl grow font-hanna lg:flex">
                 <ul className="flex xl:gap-5">
@@ -44,12 +81,12 @@ export default function Header() {
             <div className="flex items-center font-hanna xl:text-xl">
                 <div className="items-center hidden gap-3 lg:flex ">
                     <div>
-                        <button>고대비</button>
+                        <button onClick={handleContrast} className="flex items-center gap-2"><div id="contrastSwitch" className="h-[18px] rounded-full bg-BMwhite flex items-center justify-start p-[2px] w-[40px]"><span className="w-[16px] rounded-full bg-BMprimary h-[16px] block"></span></div>고대비</button>
                     </div>
                     <div className="">
-                        <button className="px-2 py-1 border">크게</button>
-                        <button className="px-2 py-1 border">100</button>
-                        <button className="px-2 py-1 border">작게</button>
+                        <button onClick={increaseZoom} className="px-2 py-1 border border-r-0">크게</button>
+                        <button onClick={zoomInit} className="px-2 py-1 border">{`${parseInt(zoom * 100)}%`}</button>
+                        <button onClick={decreaseZoom} className="px-2 py-1 border border-l-0">작게</button>
                     </div>
                     {/* 돋보기 아이콘 */}
                     <svg aria-label="돋보기 magnifier" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -57,13 +94,38 @@ export default function Header() {
                     </svg>
                     <p>돋보기</p>
                 </div>
+                
+                {/* 모바일 기능 버튼 */}
+                <div id="mobile-option-set" className="fixed font-Pretendard text-sm font-semibold right-0 flex flex-col items-start w-24 gap-[1px] shadow-md top-[40%] lg:hidden">
+                    <button onClick={increaseZoom} id="zoomIn" className="flex items-center w-24 h-8 border-0">
+                        <span className="flex items-center justify-center w-10 h-8 bg-BMtertiary">+</span>
+                        <span className="flex items-center justify-center h-8 w-14 bg-BMwhite">크게</span>
+                    </button>
+                    <button onClick={zoomInit} id="zoomInit" className="flex items-center w-24 h-8 border-0">
+                        <span className="flex items-center justify-center w-10 h-8 tracking-tighter bg-BMtertiary ">{`${parseInt(zoom * 100)}%`}</span><span className="flex items-center justify-center h-8 w-14 bg-BMwhite">초기화</span>
+                    </button>
+                    <button onClick={decreaseZoom} id="zoomOut" className="flex items-center justify-start w-24 h-8 border-0">
+                        <span className="flex items-center justify-center w-10 h-8 bg-BMtertiary">-</span>
+                        <span className="flex items-center justify-center h-8 w-14 bg-BMwhite">작게</span>
+                    </button>
+                    <button onClick={handleContrast} className="flex items-center justify-start w-24 h-8 border-0">
+                        <span className="flex items-center justify-center w-10 h-8 bg-BMtertiary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </span>
+                        <span className="flex items-center justify-center h-8 w-14 bg-BMwhite">고대비</span>
+                    </button>
+                </div>
+
                 {/* 메뉴 아이콘 */}
                 <svg aria-label="메뉴버튼" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" onClick={openNav} className="w-6 h-6 stroke-2 lg:hidden">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                 </svg>
             </div>
             {/* 모바일 슬라이드 네비게이션 */}
-            <nav id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end px-5 py-1 overflow-y-auto translate-x-full bg-white l-100 lg:hidden">
+            <nav id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end px-5 py-1 overflow-y-auto translate-x-full bg-BMwhite l-100 lg:hidden">
                 <div className="flex items-center justify-between w-full pb-5 text-xl border-b font-hanna">
                     <h1 className="pt-3">메뉴</h1>
                     <svg aria-label="닫기 버튼" xmlns="http://www.w3.org/2000/svg" fill="none" onClick={openNav} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block w-6 h-6 p-0">
@@ -122,6 +184,6 @@ export default function Header() {
 
             </nav>
         </header>
- 
+
     )
 }

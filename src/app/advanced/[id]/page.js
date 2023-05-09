@@ -66,7 +66,7 @@ export default function AdvancedDetail() {
                                 <li className="py-4 border-b 2xl:gap-8 md:text-xl md:py-8 last:border-0 2xl:flex" key={element.id}>
                                     <Image className="w-56 mx-auto 2xl:m-0" src={element.img} width={600} height={1060} alt={element.alt} />
                                     <div className="2xl:flex 2xl:gap-2">
-                                        <span className="flex items-center justify-center w-8 h-8 mx-auto mb-2 font-bold text-white rounded-full bg-BMprimary">{element.id}</span>
+                                        <span className="flex items-center justify-center w-8 h-8 mx-auto mb-2 font-bold rounded-full text-BMwhite bg-BMprimary">{element.id}</span>
                                         <p className="text-center 2xl:text-2xl 2xl:text-left">{HTMLReactParser(element.desc)}</p>
                                     </div>
                                 </li>

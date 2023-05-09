@@ -35,10 +35,10 @@ export default function Basic_id_0() {
                     <div>
                         <p>휴대폰 카메라로 찍어보세요!</p>
                         <h4 className="mb-2 text-xl font-hanna text-BMprimary">쉬운 배달앱 사용법</h4>
-                        <a className="px-3 py-2 text-sm font-medium text-white rounded-full bg-BMprimary" href="https://mandao-prod-cdn.baemin.com/assets/%EB%B0%B0%EB%8B%AC%EC%9D%98%EB%AF%BC%EC%A1%B1X%EC%86%8C%EC%86%8C%ED%95%9C%EC%86%8C%ED%86%B5_%EC%89%AC%EC%9A%B4%EB%B0%B0%EB%8B%AC%EC%95%B1%EC%82%AC%EC%9A%A9%EB%B2%95_20211203.pdf">앱 다운로드 받기</a>
+                        <a className="px-3 py-2 text-sm font-medium rounded-full text-BMwhite bg-BMprimary" href="https://mandao-prod-cdn.baemin.com/assets/%EB%B0%B0%EB%8B%AC%EC%9D%98%EB%AF%BC%EC%A1%B1X%EC%86%8C%EC%86%8C%ED%95%9C%EC%86%8C%ED%86%B5_%EC%89%AC%EC%9A%B4%EB%B0%B0%EB%8B%AC%EC%95%B1%EC%82%AC%EC%9A%A9%EB%B2%95_20211203.pdf">앱 다운로드 받기</a>
                     </div>
                 </div>
-                <p className="text-sm font-medium text-gray-400">이 자료는 삼성, LG 등 안드로이드 스마트폰을 기준으로 설명합니다.</p>
+                <p className="text-sm font-medium text-BMgray400">이 자료는 삼성, LG 등 안드로이드 스마트폰을 기준으로 설명합니다.</p>
             </section>
         </>
     )
