@@ -18,7 +18,10 @@ import html2canvas from "html2canvas";
 export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoomInit, getScreenShot, zoom }) {
     //open-menu
     const pathname = usePathname();
+    const pageId = pathname.split('/')[pathname.split('/').length - 1]
+    const pageCat = pathname.split('/')[pathname.split('/').length - 2]
     console.log(pathname)
+    console.log('cat', pageCat)
     const [isNavOpen, setIsNavOpen] = useState(false);
     const openNav = () => {
         // isNavOpen === false ?     
@@ -32,20 +35,23 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
     }
 
     return (
+        // : "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-BMblack bg-BMwhite lg:bg-BMwhite lg:text-BMblack lg:px-12 border-b"
         <>
-            <header className={pathname === '/' ? "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-black bg-BMwhite lg:bg-BMprimary lg:text-BMwhite lg:px-12" : "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-black bg-BMwhite lg:bg-BMwhite lg:text-BMblack lg:px-12 border-b"}>
+            <header className="fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 border-b text-BMblack bg-BMwhite lg:px-12">
                 <h1 className="text-lg sm:text-3xl font-hanna" tabIndex={1} aria-label="로고" aria-roledescription="클릭시 메인화면으로 이동."><Link role="logo" href={'/'}>쉬운 배달앱 사용법</Link></h1>
+                {
+                pathname === '/' ? '' :
                 <nav className="justify-center hidden text-xl grow font-hanna lg:flex">
                     <ul className="flex xl:gap-5">
-                        <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'basic/1'}>준비하기</Link></li>
-                        <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'usage/0'}>이용하기</Link></li>
-                        <li><Link className={pathname === '/' ? "px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'advanced/0'}>활용하기</Link></li>
+                        <li><Link className={pageCat === 'basic' ? "px-3 py-2 bg-BMblack text-BMwhite hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'basic/0'}>준비하기</Link></li>
+                                <li><Link className={pageCat === 'usage' ? "bg-BMblack text-BMwhite px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'usage/0'}>이용하기</Link></li>
+                                <li><Link className={pageCat === 'advanced' ? "bg-BMblack text-BMwhite px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'advanced/0'}>활용하기</Link></li>
                     </ul>
-                </nav>
+                </nav>}
                 <div className="flex items-center font-hanna xl:text-xl">
                     <div className="items-center hidden gap-3 lg:flex ">
                         <div>
-                            <button onClick={handleContrast} className="flex items-center gap-2"><div id="contrastSwitch" className="h-[18px] rounded-full bg-BMwhite flex items-center justify-start p-[2px] w-[40px]"><span className="w-[16px] rounded-full bg-BMprimary h-[16px] block"></span></div>고대비</button>
+                            <button onClick={handleContrast} className="flex items-center gap-2"><div id="contrastSwitch" className="h-[18px] rounded-full bg-BMgray200 flex items-center justify-start p-[2px] w-[40px]"><span className="w-[16px] rounded-full bg-BMprimary h-[16px] block"></span></div>고대비</button>
                         </div>
                         <div className="">
                             <button onClick={increaseZoom} className="px-2 py-1 border border-r-0">크게</button>
@@ -54,7 +60,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                         </div>
 
                         {/* 돋보기 아이콘 */}
-                        {/* <button className="flex" onClick={getScreenShot}>                         */}
+                        {/* <button className="flex" onClick={getScreenShot}>*/}
                         <button className="flex" onClick={''}>
                             <svg aria-label="돋보기 magnifier" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
@@ -66,7 +72,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                     </div>
 
                     {/* 메뉴 아이콘 */}
-                    <button onClick={openNav} role="button" aria-expanded={isNavOpen} className="relative w-6 h-6" aria-label="메뉴" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림">
+                    <button onClick={openNav} aria-hidden={isNavOpen} role="button" aria-expanded={isNavOpen} className="relative w-6 h-6" aria-label="메뉴" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림">
                         {/* <span className="absolute flex items-center justify-between inset-0 text-[5px] bg-green-500">메뉴</span> */}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="absolute inset-0 z-10 w-6 h-6 stroke-2 lg:hidden">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
@@ -77,24 +83,25 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                 <nav aria-hidden={!isNavOpen} id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end px-5 py-1 overflow-y-auto translate-x-full bg-BMwhite l-100 lg:hidden">
                     <div className="flex items-center justify-between w-full pb-5 text-xl border-b font-hanna">
                         <h1 className="pt-3">메뉴</h1>
-                        <button aria-label="닫기 버튼">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" onClick={openNav} viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block w-6 h-6 p-0">
+                        <button onClick={openNav} aria-hidden={!isNavOpen} aria-label="닫기 버튼">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block w-6 h-6 p-0">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
                     <ul className="w-full h-full text-2xl font-hanna">
+                        <li aria-current="page">홈</li>
                         <li className="py-5 border-b">
                             <div className="flex justify-between mb-3">
                                 <h2 className="text-BMprimary" >준비하기</h2>
                             </div>
                             <ol className="flex flex-col text-base font-Pretendard">
                                 {/* <li><Link onClick={openNav} className="block py-1 pt-0 font-medium border-BMprimary text-BMblack" href={'basic/1'}>쉬운 배달앱 사용법</Link></li> */}
-                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/1'}>배달앱 용어사전</Link></li>
-                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/2'}>배달앱 설치하기</Link></li>
-                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/3'}>주소 설정하기</Link></li>
-                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/4'}>회원가입 하기</Link></li>
-                                <li><Link onClick={openNav} className="block py-1 pb-0 font-medium border-BMprimary text-BMblack" href={'basic/5'}>첫 화면 이해하기</Link></li>
+                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" aria-selected="false" href={'basic/0'}>배달앱 용어사전</Link></li>
+                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/1'}>배달앱 설치하기</Link></li>
+                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/2'}>주소 설정하기</Link></li>
+                                <li><Link onClick={openNav} className="block py-1 font-medium border-BMprimary text-BMblack" href={'basic/3'}>회원가입 하기</Link></li>
+                                <li><Link onClick={openNav} className="block py-1 pb-0 font-medium border-BMprimary text-BMblack" href={'basic/4'}>첫 화면 이해하기</Link></li>
                             </ol>
                         </li>
                         <li className="py-3 border-b">

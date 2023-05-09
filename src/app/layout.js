@@ -38,11 +38,12 @@ export default function RootLayout({ children }) {
   const handleContrast = useCallback(() => {
     if (isContrast === false) {
       //색상을 변경한다
-      document.documentElement.style.setProperty('--BM-primary', '#000000')
+      document.documentElement.style.setProperty('--BM-primary', '#94a596')
       document.documentElement.style.setProperty('--BM-secondary', '#ffff00')
       document.documentElement.style.setProperty('--BM-tertiary', '#3ff23f')
-      document.documentElement.style.setProperty('--BM-black', '#000000')
-      document.documentElement.style.setProperty('--BM-line', '1aebff')
+      document.documentElement.style.setProperty('--BM-black', '#ffffff')
+      document.documentElement.style.setProperty('--BM-line', '#1aebff')
+      document.documentElement.style.setProperty('--BM-white', '#000000')
       document.getElementById('contrastSwitch').classList.remove('justify-start');
       document.getElementById('contrastSwitch').classList.add('justify-end');
       setIsContrast(true)

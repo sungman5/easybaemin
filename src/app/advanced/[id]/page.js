@@ -20,7 +20,7 @@ export default function AdvancedDetail() {
 
     return (
         <section className="leading-relaxed">
-            <h1 className="mb-4 text-2xl text-center 2xl:mb-20 md:text-4xl text-BMprimary lg:text-5xl font-hanna md:text-left lg:mb-8">{HTMLReactParser(advanced[pageId].title)}</h1>
+            <h1 className="mb-4 text-2xl text-center text-BMtertiary 2xl:mb-20 md:text-4xl lg:text-5xl font-hanna md:text-left lg:mb-8">{HTMLReactParser(advanced[pageId].title)}</h1>
             <div className="2xl:flex 2xl:gap-4 2xl:border-b 2xl:mb-16">
                 <Image className="lg:w-[640px] 2xl:w-[560px]" src={advanced[pageId].cover_img_url} width={800} height={800} alt={''} />
                 <div>

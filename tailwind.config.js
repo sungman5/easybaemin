@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         'BMprimary': 'var(--BM-primary)',
+        'BMprimary100': 'var(--BM-primary-100)',
         'BMblack': 'var(--BM-black)',
         'BMsecondary': 'var(--BM-secondary)',
         'BMtertiary': 'var(--BM-tertiary)',
@@ -21,6 +22,7 @@ module.exports = {
         'BMwhite': 'var(--BM-white)',
         'BMgray500': 'var(--BM-gray500)',
         'BMgray400': 'var(--BM-gray400)',
+        'BMgray200': 'var(--BM-gray200)',
         'BMline': 'var(--BM-line)',
         'BMrealblack': 'var(--BM-realblack)',
       },

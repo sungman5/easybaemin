@@ -22,7 +22,7 @@ export default function UsageDetail() {
 
     return (
         <section className="leading-relaxed">
-            <h1 className="mb-4 text-2xl text-center lg:text-5xl font-hanna md:text-3xl md:text-left">{usage[pageId].title}</h1>
+            <h1 className="mb-4 text-2xl text-center lg:text-5xl font-hanna md:text-3xl md:text-left text-BMsecondary">{usage[pageId].title}</h1>
             <ul>
                 {
                     usage[pageId].content.map((element) => {

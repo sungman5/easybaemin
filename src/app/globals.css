@@ -25,6 +25,7 @@
 @layer base{
     :root{
         --BM-primary : #23b8c0;
+        --BM-primary-100 : #f3f4f6;
         --BM-secondary : #6dba44;
         --BM-tertiary : #fdd118;
         --BM-black : #414141;    
@@ -34,6 +35,7 @@
         --BM-gray : #ffffff;    
         --BM-gray400 : #9ca3af;    
         --BM-gray500 : #6b7280;    
+        --BM-gray200 : #e5e7eb;    
         --BM-line : #f1f5f9;    
     }
 }

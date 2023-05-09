@@ -13,7 +13,7 @@ export const basic = [
     //     ]
     // },
     {
-        id: 1,
+        id: 0,
         isTutorial: false,
         title: '배달앱 용어사전',
         tutoContents: [
@@ -27,7 +27,7 @@ export const basic = [
         moreInfo: ``,
     },
     {
-        id: 2,
+        id: 1,
         isTutorial: true,
         title: '배달앱 설치하기',
         tutoContents: [
@@ -66,7 +66,7 @@ export const basic = [
     },
 
     {
-        id: 3,
+        id: 2,
         isTutorial: true,
         title: '주소 설정하기',
         tutoContents: [
@@ -104,7 +104,7 @@ export const basic = [
         moreInfo: ``,
     },
     {
-        id: 4,
+        id: 3,
         isTutorial: true,
         title: '회원가입 하기',
         tutoContents: [
@@ -181,7 +181,7 @@ export const basic = [
         moreInfo: ``,
     },
     {
-        id: 5,
+        id: 4,
         isTutorial: false,
         title: '첫 화면 이해하기',
         tutoContents: [
