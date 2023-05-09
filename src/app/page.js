@@ -20,7 +20,7 @@ export default function Home() {
 
   //배민맨 입장
   const enterance = () => {
-    gsap.from('#bm-character', { opacity:0, duration: 1, autoAlpha:0})
+    gsap.from('#bm-character', { opacity: 0, duration: 1, autoAlpha: 0 })
   }
   useEffect(() => {
     window.addEventListener('DOMContentLoaded', enterance())
@@ -29,8 +29,11 @@ export default function Home() {
   return (
     <div className='relative h-full font-hanna bg-BMprimary'>
       <section className='w-full p-5 lg:px-12 lg:pt-5'>
-        <div className='mb-2 text-base font-medium leading-relaxed text-BMwhite lg:text-xl lg:leading-[160%] font-Pretendard'>
-          <p>장애, 나이 상관없이 누구나 배달앱을 사용할 수 있도록 <br className='hidden md:block' />어려운 용어는 쉽게 바꾸고, 설명이 필요한 부분은 <br className='hidden md:block' />친절하게 안내했습니다. <br className='hidden md:block' /><span className='font-hanna'>&lt;쉬운 배달앱 사용법&gt;</span>을 통해 <br className='hidden md:block' />발달장애인도, 시각장애인도, 어르신도 <br className='hidden md:block' />누구나 편리하게 배달로 음식과 생활용품을 <br className='hidden md:block' />주문할 수 있기를 바랍니다!</p></div>
+        <div className='mb-2 max-w-md break-keep text-base font-medium leading-relaxed text-BMwhite lg:text-xl lg:leading-[160%] font-Pretendard'>
+          <p>
+            장애, 나이 상관없이 누구나 배달앱을 사용할 수 있도록 어려운 용어는 쉽게 바꾸고, 설명이 필요한 부분은 친절하게 안내했습니다. 쉬운 배달앱 사용법을 통해 발달장애인도, 시각장애인도, 어르신도 누구나 편리하게 배달로 음식과 생활용품을 주문할 수 있기를 바랍니다!
+          </p>
+        </div>
         {/* <p className='text-BMwhite sm:text-2xl lg:text-3xl xl:text-4xl'>본 사이트는 임시 사이트입니다.</p> */}
       </section>
       <section className='absolute inset-x-0 bottom-0 overflow-hidden'>

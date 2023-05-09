@@ -14,7 +14,7 @@ export default function Footer() {
     console.log(isContrast)
 
     return (
-        <footer className="flex items-center justify-between p-5 text-sm text-BMgray500 bg-gray-100 sm:text-lg lg:py-2">
+        <footer aria-label="최하단에 위치한 푸터" className="flex items-center justify-between p-5 text-sm bg-gray-100 text-BMgray500 sm:text-lg lg:py-2">
             <p>배달의민족과 소소한소통이 만들었습니다.</p>
             <div className="flex">
                 {/* <button

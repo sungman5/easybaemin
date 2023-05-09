@@ -35,17 +35,16 @@ export default function RootLayout({ children }) {
 
 
   // const getScreenShot = () => {
+  //   const isCanvas = document.getElementById('canvas')
   //   console.log('onCapture!');
   //   html2canvas(document.body).then(function (canvas) {
-  //     // document.body.appendChild(canvas);
-  //     drawImg(canvas.toDataURL('image/png'));
-  //     document.body.appendChild(canvas)
+  //     document.body.appendChild(isCanvas);
   //   });
   // }
 
 
   return (
-    <html style={{ zoom: zoom }} className='h-full font-Pretendard text-BMblack' lang="en">
+    <html style={{ zoom: zoom }} className='h-full font-Pretendard text-BMblack' lang="ko">
       <Head>
         <title>쉬운 배달앱 사용법</title>
       </Head>
