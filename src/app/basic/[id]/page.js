@@ -13,7 +13,6 @@ import Basic_id_5 from "@/components/basic_pages/basic_id_5";
 export default function BasicDetail() {
     const pathname = usePathname();
     const pageId = pathname.split('/')[pathname.split('/').length - 1]
-    console.log(pageId)
 
     const showPage = () => {
         if (pageId === '0') {

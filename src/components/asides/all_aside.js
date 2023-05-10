@@ -69,7 +69,6 @@ export default function AllAside() {
                     <ul aria-hidden={isBasicOpen} id="basic_dropdown" aria-label='준비하기 메뉴' className="flex flex-col h-0 gap-1 overflow-hidden">
                         {
                             basic.map((element) => {
-                                console.log('아이디!', element.id)
                                 return (
                                     <li tabIndex={2} className={pathname === `/basic/${element.id}` ? 'p-2 tracking-tight rounded lg:text-lg lg:bg-BMprimary100 text-BMrealblack lg:font-bold' : 'p-2 tracking-tight rounded lg:text-lg hover:bg-gray-100'} key={element.id}><Link href={`/basic/${element.id}`}>{element.title}</Link></li>
                                 )
@@ -84,8 +83,7 @@ export default function AllAside() {
                         </svg></h1>
                     <ul aria-hidden={isUsageOpen} id="usage_dropdown" className="flex flex-col h-0 gap-1 overflow-hidden">
                         {
-                            usage.map((element) => {
-                                console.log('아이디!', element.id)
+                            usage.map((element) => {                                
                                 return (
                                     <li tabIndex={3} className={pathname === `/usage/${element.id}` ? 'p-2 tracking-tight rounded lg:text-lg lg:bg-BMprimary100 text-BMrealblack lg:font-bold' : 'p-2 tracking-tight rounded lg:text-lg hover:bg-gray-100'} key={element.id}><Link href={`/usage/${element.id}`}>{element.title}</Link></li>
                                 )
@@ -100,8 +98,7 @@ export default function AllAside() {
                         </svg></h1>
                     <ul aria-hidden={isAdvancedOpen} id="advanced_dropdown" className="flex flex-col h-0 gap-1 overflow-hidden">
                         {
-                            advanced.map((element) => {
-                                console.log('아이디!', element.id)
+                            advanced.map((element) => {                                
                                 return (
                                     <li tabIndex={4} className={pathname === `/advanced/${element.id}` ? 'p-2 tracking-tight rounded lg:text-lg lg:bg-BMprimary100 text-BMrealblack lg:font-bold' : 'p-2 tracking-tight rounded lg:text-lg hover:bg-gray-100'} key={element.id}><Link href={`/advanced/${element.id}`}>{element.title}</Link></li>
                                 )

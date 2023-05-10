@@ -15,17 +15,156 @@ import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import html2canvas from "html2canvas";
 
+// 모달 컴포넌트 생성
+
 export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav, handleContrast, zoomInit, isContrast, getScreenShot, zoom }) {
-    //open-menu
+
     const pathname = usePathname();
     const pageId = pathname.split('/')[pathname.split('/').length - 1]
     const pageCat = pathname.split('/')[pathname.split('/').length - 2]
-    // console.log(pathname)
-    console.log('navopen?',isNavOpen)
+
+
+
+    // async function setMagnifier() {
+    //     console.log("캡쳐!");
+
+    //     const targetDom = document.querySelector("header");
+
+    //     // 스샷 후 메인에 띄우기
+    //     const addScreenShot = async () => {
+    //         const newFrame = document.createElement("div");
+    //         const closeBtn = document.createElement("button");
+
+    //         const closeAction = () => {
+    //             newFrame.remove();
+    //         };
+
+    //         const screenShot = await html2canvas(document.body);
+    //         newFrame.id = 'viewFrame'
+    //         newFrame.classList.add(
+    //             "fixed",
+    //             "inset-0",
+    //             "overflow-y-auto",
+    //             "bg-green-100"
+    //         );
+    //         closeBtn.classList.add(
+    //             "absolute",
+    //             "top-4",
+    //             "right-4",
+    //             "bg-BMgray200",
+    //             "rounded-full",
+    //             "w-16",
+    //             "h-16",
+    //             "shadow-lg",
+    //             "font-bold",
+    //             "text-lg"
+    //         );
+    //         closeBtn.innerText = "닫기";
+    //         closeBtn.addEventListener("click", closeAction);
+
+    //         targetDom.appendChild(newFrame);
+    //         newFrame.appendChild(screenShot);
+    //         newFrame.appendChild(closeBtn);
+
+    //         console.log(screenShot);
+    //         console.log(newFrame);
+    //     };
+
+
+    //     addScreenShot()
+
+    // }
+    async function setMagnifier() {
+        console.log("캡쳐!");
+
+        const targetDom = document.querySelector("header");
+
+        // 스샷 후 메인에 띄우기
+        const addScreenShot = async () => {
+            const newFrame = document.createElement("div");
+            const closeBtn = document.createElement("button");
+            const magnifier = document.createElement("div");
+
+            const closeAction = () => {
+                newFrame.remove();
+            };
+
+            const screenShot = await html2canvas(document.body);
+            newFrame.id = "viewFrame";
+            newFrame.classList.add(
+                "fixed",
+                "inset-0",
+                "overflow-y-auto",
+                "bg-green-100"
+            );
+            closeBtn.classList.add(
+                "absolute",
+                "top-4",
+                "right-4",
+                "bg-BMgray200",
+                "rounded-full",
+                "w-16",
+                "h-16",
+                "shadow-lg",
+                "font-bold",
+                "text-lg"
+            );
+            closeBtn.innerText = "닫기";
+            closeBtn.addEventListener("click", closeAction);
+
+            magnifier.className = "magnifier";
+            magnifier.classList.add(
+                "absolute",
+                "pointer-events-none",
+                "w-64",
+                "h-64",
+                "border",
+                "border-black",
+                "rounded-full",
+                "bg-no-repeat",
+                "hidden"
+            );
+
+            targetDom.appendChild(newFrame);
+            newFrame.appendChild(screenShot);
+            newFrame.appendChild(closeBtn);
+            newFrame.appendChild(magnifier);
+
+            newFrame.addEventListener("mousemove", (event) => {
+                const bounds = newFrame.getBoundingClientRect();
+                const x = event.clientX - bounds.left;
+                const y = event.clientY - bounds.top;
+                const scaleX = 2;
+                const scaleY = 2;
+
+                magnifier.classList.remove("hidden");
+                magnifier.style.left = `${x - magnifier.offsetWidth / 2}px`;
+                magnifier.style.top = `${y - magnifier.offsetHeight / 2}px`;
+                magnifier.style.backgroundImage = `url(${screenShot.toDataURL()})`;
+                magnifier.style.backgroundSize = `${newFrame.offsetWidth * scaleX}px ${newFrame.offsetHeight * scaleY}px`;
+                const bgPosX = (x * scaleX) - (magnifier.offsetWidth / 2);
+                const bgPosY = (y * scaleY) - (magnifier.offsetHeight / 2);
+                magnifier.style.backgroundPosition = `-${bgPosX}px -${bgPosY}px`;
+            });
+
+
+
+            newFrame.addEventListener("mouseleave", () => {
+                magnifier.classList.add("hidden");
+            });
+
+            console.log(screenShot);
+            console.log(newFrame);
+        };
+
+        addScreenShot();
+    }
+
+
+
 
 
     return (
-        // : "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-BMblack bg-BMwhite lg:bg-BMwhite lg:text-BMblack lg:px-12 border-b"
         <>
             <header className="fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 border-b text-BMblack bg-BMwhite lg:px-12">
                 <h1 className="text-lg sm:text-3xl font-hanna" tabIndex={1} aria-label="로고" aria-roledescription="클릭시 메인화면으로 이동."><Link role="logo" href={'/'}>쉬운 배달앱 사용법</Link></h1>
@@ -37,7 +176,10 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
                                 <li><Link className={pageCat === 'usage' ? "bg-BMblack text-BMwhite px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'usage/0'}>이용하기</Link></li>
                                 <li><Link className={pageCat === 'advanced' ? "bg-BMblack text-BMwhite px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'advanced/0'}>활용하기</Link></li>
                             </ul>
-                        </nav>} */}
+                </nav>} */}
+
+
+
                 <div className="flex items-center font-hanna xl:text-xl">
                     <div className="items-center hidden gap-3 lg:flex ">
                         <div>
@@ -51,7 +193,7 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
 
                         {/* 돋보기 아이콘 */}
                         {/* <button className="flex" onClick={getScreenShot}>*/}
-                        <button tabIndex={11} aria-label="돋보기" className="flex" onClick={''}>
+                        <button tabIndex={11} aria-label="돋보기" className="flex" onClick={setMagnifier}>
                             <svg aria-label="돋보기 magnifier" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
                             </svg>
@@ -62,7 +204,7 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
                     </div>
 
                     {/* 메뉴 아이콘 */}
-                    <button onClick={openNav} aria-hidden={isNavOpen} role="button" aria-expanded={isNavOpen} className="relative w-6 h-6 lg:hidden" aria-label="메뉴" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림">                        
+                    <button onClick={openNav} aria-hidden={isNavOpen} role="button" aria-expanded={isNavOpen} className="relative w-6 h-6 lg:hidden" aria-label="메뉴" aria-roledescription="클릭시 다른 항목으로 이동 가능한 목록 열림">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="absolute inset-0 z-10 w-6 h-6 stroke-2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                         </svg>
@@ -91,24 +233,24 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
                             </ol>
                         </li>
                         <li className="py-3 border-b">
-                            <h2 className="mb-3 text-BMsecondary">이용하기</h2>                            
+                            <h2 className="mb-3 text-BMsecondary">이용하기</h2>
                             <ol className="flex flex-col text-base font-Pretendard">
-                                <li><Link onClick={openNav} className={pathname === '/usage/0' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/0'}>주문할 곳 고르기</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/usage/1' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/1'}>메뉴 담기</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/usage/2' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/2'}>결제하기</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/usage/0' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/0'}>주문할 곳 고르기</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/usage/1' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/1'}>메뉴 담기</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/usage/2' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/2'}>결제하기</Link></li>
                             </ol>
                         </li>
                         <li className="py-3">
-                            <h2 className="mb-3 text-BMtertiary">활용하기</h2>                            
+                            <h2 className="mb-3 text-BMtertiary">활용하기</h2>
                             <ol className="text-base font-Pretendard">
-                                <li><Link onClick={openNav} className={pathname === '/advanced/0' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/0'}>음식을 빨리 배달 받고 싶어!</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/1' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/1'}>배달팁이 싼 곳에서 주문하고 싶어</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/2' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/2'}>음식을 포장해서 먹고 싶어!</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/3' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/3'}>1인분만 주문하고 싶어!</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/4' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/4'}>예전에 먹은 음식을 또 주문하고 싶어!</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/5' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/5'}>싫어하는 음식은 빼달라고 하고 싶어!</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/6' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/6'}>생활에 필요한 물건도 배달 받고 싶어!</Link></li>
-                                <li><Link onClick={openNav} className={pathname === '/advanced/7' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/7'}>할인 받아서 음식을 주문하고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/0' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/0'}>음식을 빨리 배달 받고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/1' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/1'}>배달팁이 싼 곳에서 주문하고 싶어</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/2' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/2'}>음식을 포장해서 먹고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/3' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/3'}>1인분만 주문하고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/4' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/4'}>예전에 먹은 음식을 또 주문하고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/5' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/5'}>싫어하는 음식은 빼달라고 하고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/6' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/6'}>생활에 필요한 물건도 배달 받고 싶어!</Link></li>
+                                <li><Link onClick={openNav} className={pathname === '/advanced/7' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack' : "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/7'}>할인 받아서 음식을 주문하고 싶어!</Link></li>
                             </ol>
                         </li>
                     </ul>

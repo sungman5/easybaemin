@@ -10,9 +10,6 @@ import HTMLReactParser from "html-react-parser";
 export default function UsageDetail() {
     const pathname = usePathname();
     const pageId = pathname.split('/')[pathname.split('/').length - 1]
-    
-    
-    console.log(pathname)
 
     const showUsagePage = () => {
         if (pageId === '0') {
