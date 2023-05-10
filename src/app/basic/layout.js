@@ -1,5 +1,6 @@
 'use client';
 
+import AllAside from "@/components/asides/all_aside";
 import BasicAside from "@/components/asides/basic_aside";
 
 export default function Layout({ children }) {
@@ -7,7 +8,7 @@ export default function Layout({ children }) {
         <section className="lg:mx-auto xl:container lg:h-full">   
             {/* <div className="lg:flex lg:h-full"> */}
             <div className="lg:flex lg:mx-auto lg:h-full">
-                <BasicAside />
+                <AllAside />
                 <div className="p-8 lg:flex-none lg:grow lg:pt-20 lg:border-x">{children}</div>
             </div>
         </section>

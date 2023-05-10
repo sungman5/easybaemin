@@ -15,31 +15,21 @@ import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import html2canvas from "html2canvas";
 
-export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoomInit, isContrast, getScreenShot, zoom }) {
+export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav, handleContrast, zoomInit, isContrast, getScreenShot, zoom }) {
     //open-menu
     const pathname = usePathname();
     const pageId = pathname.split('/')[pathname.split('/').length - 1]
     const pageCat = pathname.split('/')[pathname.split('/').length - 2]
-    console.log(pathname)
-    
-    const [isNavOpen, setIsNavOpen] = useState(false);
-    const openNav = () => {
-        // isNavOpen === false ?     
-        if (isNavOpen === false) {
-            gsap.to('#mobile-menu', { x: '0', duration: 0.2 })
-            setIsNavOpen(true)
-        } else {
-            gsap.to('#mobile-menu', { x: '100%', duration: 0.2 })
-            setIsNavOpen(false)
-        }
-    }
+    // console.log(pathname)
+    console.log('navopen?',isNavOpen)
+
 
     return (
         // : "fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 text-BMblack bg-BMwhite lg:bg-BMwhite lg:text-BMblack lg:px-12 border-b"
         <>
             <header className="fixed top-0 left-0 right-0 z-10 flex items-center justify-between px-5 py-4 border-b text-BMblack bg-BMwhite lg:px-12">
                 <h1 className="text-lg sm:text-3xl font-hanna" tabIndex={1} aria-label="로고" aria-roledescription="클릭시 메인화면으로 이동."><Link role="logo" href={'/'}>쉬운 배달앱 사용법</Link></h1>
-                {
+                {/* {
                     pathname === '/' ? '' :
                         <nav className="justify-center hidden text-xl grow font-hanna lg:flex">
                             <ul className="flex xl:gap-5">
@@ -47,7 +37,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                                 <li><Link className={pageCat === 'usage' ? "bg-BMblack text-BMwhite px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'usage/0'}>이용하기</Link></li>
                                 <li><Link className={pageCat === 'advanced' ? "bg-BMblack text-BMwhite px-3 py-2 hover:bg-BMblack hover:rounded xl:text-3xl" : "px-3 py-2 hover:bg-gray-200 hover:rounded xl:text-3xl"} href={'advanced/0'}>활용하기</Link></li>
                             </ul>
-                        </nav>}
+                        </nav>} */}
                 <div className="flex items-center font-hanna xl:text-xl">
                     <div className="items-center hidden gap-3 lg:flex ">
                         <div>
@@ -82,7 +72,7 @@ export default function Header({ increaseZoom, decreaseZoom, handleContrast, zoo
                 <nav aria-hidden={!isNavOpen} id="mobile-menu" className="fixed inset-0 z-50 flex flex-col items-end px-5 py-1 overflow-y-auto translate-x-full bg-BMwhite l-100 lg:hidden">
                     <div className="flex items-center justify-between w-full py-4 text-xl border-b font-hanna">
                         <h1>메뉴</h1>
-                        <button onClick={openNav} aria-hidden={!isNavOpen} aria-label="닫기 버튼">
+                        <button onClick={openNav} aria-label="닫기 버튼">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block w-6 h-6 p-0">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>

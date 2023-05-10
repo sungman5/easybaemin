@@ -28,7 +28,7 @@ export default function Home() {
 
   
   return (    
-    <div className='relative h-full font-hanna bg-BMwhite'>
+    <div id='homepage' className='relative h-full font-hanna bg-BMwhite'>
       <section className='w-full p-5 lg:px-12 lg:pt-5'>
         <p tabIndex={2} className='mb-2 max-w-md break-keep text-base font-medium leading-relaxed text-BMblack lg:text-xl lg:leading-[160%] font-Pretendard'>          
             장애, 나이 상관없이 누구나 배달앱을 사용할 수 있도록 어려운 용어는 쉽게 바꾸고, 설명이 필요한 부분은 친절하게 안내했습니다. 쉬운 배달앱 사용법을 통해 발달장애인도, 시각장애인도, 어르신도 누구나 편리하게 배달로 음식과 생활용품을 주문할 수 있기를 바랍니다!          

@@ -4,8 +4,9 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import './globals.css'
 import Head from 'next/head'
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import html2canvas from 'html2canvas';
+import { gsap } from 'gsap';
 
 /**
  * sm	640px	@media (min-width: 640px) { ... }
@@ -61,15 +62,23 @@ export default function RootLayout({ children }) {
     }
   }, [isContrast])
 
+  //메뉴 오픈
 
-  // const getScreenShot = () => {
-  //   const isCanvas = document.getElementById('canvas')
-  //   console.log('onCapture!');
-  //   html2canvas(document.body).then(function (canvas) {
-  //     document.body.appendChild(isCanvas);
-  //   });
-  // }
-
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const openNav = () => {
+    // isNavOpen === false ?     
+    if (isNavOpen === false) {
+      document.getElementById('homepage').setAttribute('aria-hidden', true);
+      document.getElementById('mobile-option-set').setAttribute('aria-hidden', true);
+      gsap.to('#mobile-menu', { x: '0', duration: 0.2 })
+      setIsNavOpen(true)
+    } else {
+      gsap.to('#mobile-menu', { x: '100%', duration: 0.2 })
+      document.getElementById('homepage').setAttribute('aria-hidden', false);
+      document.getElementById('mobile-option-set').setAttribute('aria-hidden', false);
+      setIsNavOpen(false)
+    }
+  }
 
   return (
     <html style={{ zoom: zoom }} className='h-full font-Pretendard text-BMblack' lang="ko">
@@ -79,9 +88,12 @@ export default function RootLayout({ children }) {
       <body id="captureTarget" className="h-full bg-BMwhite">
         {/* wrapper start */}
         <div className="flex flex-col h-full">
-          <Header isContrast={isContrast} zoomInit={zoomInit} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
+          <Header isContrast={isContrast} isNavOpen={isNavOpen} openNav={openNav} setIsNavOpen={setIsNavOpen} zoomInit={zoomInit} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
           <main className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>        
             {children}            
+            {/* {React.Children.map(children, child => {
+              return React.cloneElement(child, {isNavOpen:isNavOpen});
+            })} */}
             {/* <canvas id="canvas" width={900} height={900} className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-green-100"></canvas> */}
           </main>
           <Footer zoomInit={zoomInit} isContrast={isContrast} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
