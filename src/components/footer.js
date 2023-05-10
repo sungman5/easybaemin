@@ -10,7 +10,7 @@
 export default function Footer({ increaseZoom, decreaseZoom, zoomInit, isContrast, handleContrast, zoom }) {
     return (
         <>
-            <footer aria-label="푸터" className="flex items-center justify-between p-5 text-sm bg-gray-100 text-BMgray500 sm:text-lg lg:py-2">
+            <footer tabIndex={6} aria-label="푸터" className="flex items-center justify-between p-5 text-sm bg-gray-100 text-BMgray500 sm:text-lg lg:py-2">
                 <p>배달의민족과 소소한소통이 만들었습니다.</p>
                 {/* 모바일 기능 버튼 */}
             </footer>

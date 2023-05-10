@@ -10,7 +10,9 @@ import HTMLReactParser from "html-react-parser";
 export default function UsageDetail() {
     const pathname = usePathname();
     const pageId = pathname.split('/')[pathname.split('/').length - 1]
-    console.log(pageId)
+    
+    
+    console.log(pathname)
 
     const showUsagePage = () => {
         if (pageId === '0') {
@@ -22,7 +24,7 @@ export default function UsageDetail() {
 
     return (
         <section className="leading-relaxed">
-            <h1 className="mb-4 text-2xl text-center lg:text-5xl font-hanna md:text-3xl md:text-left text-BMsecondary">{usage[pageId].title}</h1>
+            <h1 className="mb-4 text-2xl text-center lg:text-5xl font-hanna md:text-3xl md:text-left text-BMblack">{usage[pageId].title}</h1>
             <ul>
                 {
                     usage[pageId].content.map((element) => {
