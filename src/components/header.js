@@ -80,7 +80,7 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
                     </div>
                     <ul className="w-full h-full text-2xl font-hanna">
                         <li className="py-5 border-b">
-                            <h2 className="text-BMprimary" >준비하기</h2>
+                            <h2 className="mb-3 text-BMprimary" >준비하기</h2>
                             <ol className="flex flex-col text-base font-Pretendard">
                                 {/* <li><Link onClick={openNav} className="block py-1 pt-0 font-medium border-BMprimary text-BMblack" href={'basic/1'}>쉬운 배달앱 사용법</Link></li> */}
                                 <li><Link onClick={openNav} className={pathname === '/basic/0' ? "block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack" : "block px-2 rounded py-1 font-medium bg-block text-BMblack"} href={'basic/0'}>배달앱 용어사전</Link></li>
@@ -91,7 +91,7 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
                             </ol>
                         </li>
                         <li className="py-3 border-b">
-                            <h2 className="text-BMsecondary">이용하기</h2>                            
+                            <h2 className="mb-3 text-BMsecondary">이용하기</h2>                            
                             <ol className="flex flex-col text-base font-Pretendard">
                                 <li><Link onClick={openNav} className={pathname === '/usage/0' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/0'}>주문할 곳 고르기</Link></li>
                                 <li><Link onClick={openNav} className={pathname === '/usage/1' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'usage/1'}>메뉴 담기</Link></li>
@@ -99,7 +99,7 @@ export default function Header({ increaseZoom, isNavOpen, decreaseZoom, openNav,
                             </ol>
                         </li>
                         <li className="py-3">
-                            <h2 className="text-BMtertiary">활용하기</h2>                            
+                            <h2 className="mb-3 text-BMtertiary">활용하기</h2>                            
                             <ol className="text-base font-Pretendard">
                                 <li><Link onClick={openNav} className={pathname === '/advanced/0' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/0'}>음식을 빨리 배달 받고 싶어!</Link></li>
                                 <li><Link onClick={openNav} className={pathname === '/advanced/1' ? 'block px-2 rounded py-1 font-medium bg-BMgray200 text-BMblack': "px-2 rounded block py-1 font-medium bg-block text-BMblack"} href={'advanced/1'}>배달팁이 싼 곳에서 주문하고 싶어</Link></li>

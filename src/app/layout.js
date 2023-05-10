@@ -67,8 +67,11 @@ export default function RootLayout({ children }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const openNav = () => {
     // isNavOpen === false ?     
+    const homepate = document.getElementById('homepage')    
+    console.log('', homepate)
+    
     if (isNavOpen === false) {
-      document.getElementById('homepage').setAttribute('aria-hidden', true);
+      homepate.setAttribute('aria-hidden', true);
       document.getElementById('mobile-option-set').setAttribute('aria-hidden', true);
       gsap.to('#mobile-menu', { x: '0', duration: 0.2 })
       setIsNavOpen(true)
@@ -89,7 +92,7 @@ export default function RootLayout({ children }) {
         {/* wrapper start */}
         <div className="flex flex-col h-full">
           <Header isContrast={isContrast} isNavOpen={isNavOpen} openNav={openNav} setIsNavOpen={setIsNavOpen} zoomInit={zoomInit} handleContrast={handleContrast} zoom={zoom} increaseZoom={increaseZoom} decreaseZoom={decreaseZoom} />
-          <main className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>        
+          <main id='homepage' className='pt-[60px] sm:pt-[68px] xl:pt-[70px] grow'>        
             {children}            
             {/* {React.Children.map(children, child => {
               return React.cloneElement(child, {isNavOpen:isNavOpen});
